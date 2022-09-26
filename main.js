@@ -6,7 +6,7 @@ let lastScrollDirection = null;
 
 let initialTop = 1200;
 let initialLeft = 1200;
-const scrollContainer = document.querySelector(".scroll-container");
+const scrollContainer = document.querySelector(".scroll-container-observer");
 buildDOM(imageSets, scrollContainer);
 const rightTrigger = 3600 - window.innerWidth - 300;
 console.log({ rightTrigger });
