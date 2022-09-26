@@ -8,8 +8,8 @@
   display: none;
 }
 body {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 } */
 
 img {
@@ -19,27 +19,27 @@ img {
 }
 
 .scroll-container-observer {
-  width: 5400px;
-  height: 5400px;
+  width: 9000px;
+  height: 9000px;
   display: grid;
-  grid-template-columns: 0px 5400px 0px;
+  grid-template-columns: 0px 9000px 0px;
 }
 .up,
 .down {
-  width: 5400px;
+  width: 9000px;
   height: 0px;
   background: yellow;
 }
 .left,
 .right {
-  height: 5400px;
+  height: 9000px;
   width: 0px;
   background: yellow;
 }
 .scroll-container-observer .middle {
   display: grid;
-  grid-template-columns: repeat(3, 1800px);
-  grid-template-rows: repeat(3, 1800px);
+  grid-template-columns: repeat(5, 1800px);
+  grid-template-rows: repeat(5, 1800px);
 }
 .inner-grid {
   display: grid;

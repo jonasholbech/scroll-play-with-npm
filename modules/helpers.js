@@ -53,7 +53,7 @@ export const images = [
 
 export function getImageSets() {
   let imageSets = [];
-  imageSets.push(images.slice(0, 16));
+  /* imageSets.push(images.slice(0, 16));
   imageSets.push(images.slice(16, 32));
   imageSets.push(images.slice(32, 48));
   imageSets.push(images.slice(8, 24));
@@ -61,7 +61,11 @@ export function getImageSets() {
   imageSets.push(images.slice(4, 20));
   imageSets.push(images.slice(20, 36));
   imageSets.push(images.slice(6, 22));
-  imageSets.push(images.slice(22, 38));
+  imageSets.push(images.slice(22, 38)); */
+  for (let i = 0; i < 25; i++) {
+    let start = Math.floor(Math.random() * (images.length - 12));
+    imageSets.push(images.slice(start, start + 12));
+  }
   return imageSets;
 }
 

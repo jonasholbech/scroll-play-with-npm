@@ -1,18 +1,21 @@
 import "./style.css";
-import is, { mobile } from "is_js";
+import is from "is_js";
+
 import { getImageSets, buildDOM } from "./modules/helpers";
 let imageSets = getImageSets();
-let initialTop = 1800;
-let initialLeft = 1800;
+let initialTop = 3600;
+let initialLeft = 3600;
 const scrollContainer = document.querySelector(
   ".scroll-container-observer .middle"
 );
-
+if (is.mobile()) {
+  scrollContainer.getElementsByClassName.scrollSnapType = "both";
+}
 buildDOM(imageSets, scrollContainer);
 window.scroll(initialLeft, initialTop);
 let options = {
   //root: scrollContainer,
-  rootMargin: "300px",
+  rootMargin: "1800px",
 };
 function debug() {
   const d = document.createElement("div");
@@ -33,9 +36,9 @@ debug();
 let observer = new IntersectionObserver(callback, options);
 function setupObservers() {
   observer.observe(document.querySelector(".left"));
-  observer.observe(document.querySelector(".up"));
+  /* observer.observe(document.querySelector(".up"));
   observer.observe(document.querySelector(".down"));
-  observer.observe(document.querySelector(".right"));
+  observer.observe(document.querySelector(".right")); */
 }
 setupObservers();
 function removeObservers() {
@@ -55,31 +58,37 @@ function callback(entries, observer) {
     }
   });
 }
+
 function scroll(x, y) {
-  window.scrollBy({
-    top: y,
-    left: x,
-    behavior: "instant",
-  });
+  window.scrollBy(x, y);
 }
+
 function moveGrid(dir) {
   switch (dir) {
     case "left":
       scrollContainer.insertBefore(
-        document.querySelector(`[data-id="2"]`),
+        document.querySelector(`[data-id="4"]`),
         document.querySelector(`[data-id="0"]`)
       );
       scrollContainer.insertBefore(
-        document.querySelector(`[data-id="5"]`),
-        document.querySelector(`[data-id="3"]`)
+        document.querySelector(`[data-id="9"]`),
+        document.querySelector(`[data-id="5"]`)
       );
       scrollContainer.insertBefore(
-        document.querySelector(`[data-id="8"]`),
-        document.querySelector(`[data-id="6"]`)
+        document.querySelector(`[data-id="14"]`),
+        document.querySelector(`[data-id="10"]`)
       );
-
+      scrollContainer.insertBefore(
+        document.querySelector(`[data-id="19"]`),
+        document.querySelector(`[data-id="15"]`)
+      );
+      scrollContainer.insertBefore(
+        document.querySelector(`[data-id="24"]`),
+        document.querySelector(`[data-id="20"]`)
+      );
       scroll(1800, 0);
 
+      //window.scrollTo(3600, 0);
       resetNumbers();
       break;
     case "right":
