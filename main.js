@@ -1,5 +1,6 @@
 import "./style.css";
-import is, { mobile } from "is_js";
+import is from "is_js";
+
 import { getImageSets, buildDOM } from "./modules/helpers";
 let imageSets = getImageSets();
 let initialTop = 1800;
@@ -7,12 +8,14 @@ let initialLeft = 1800;
 const scrollContainer = document.querySelector(
   ".scroll-container-observer .middle"
 );
-
+if (is.mobile()) {
+  scrollContainer.getElementsByClassName.scrollSnapType = "both";
+}
 buildDOM(imageSets, scrollContainer);
 window.scroll(initialLeft, initialTop);
 let options = {
   //root: scrollContainer,
-  rootMargin: "300px",
+  rootMargin: "600px",
 };
 function debug() {
   const d = document.createElement("div");
@@ -55,13 +58,11 @@ function callback(entries, observer) {
     }
   });
 }
+
 function scroll(x, y) {
-  window.scrollBy({
-    top: y,
-    left: x,
-    behavior: "instant",
-  });
+  window.scrollBy(x, y);
 }
+
 function moveGrid(dir) {
   switch (dir) {
     case "left":
@@ -77,9 +78,9 @@ function moveGrid(dir) {
         document.querySelector(`[data-id="8"]`),
         document.querySelector(`[data-id="6"]`)
       );
-
       scroll(1800, 0);
 
+      //window.scrollTo(3600, 0);
       resetNumbers();
       break;
     case "right":
@@ -91,10 +92,10 @@ function moveGrid(dir) {
         document.querySelector(`[data-id="3"]`),
         document.querySelector(`[data-id="6"]`)
       );
-      scrollContainer.insertBefore(
-        document.querySelector(`[data-id="6"]`),
-        document.querySelector(`[data-id="9"]`)
-      );
+
+      document
+        .querySelector(`[data-id="6"]`)
+        .after(document.querySelector(`[data-id="8"]`));
 
       scroll(-1800, 0);
       resetNumbers();
@@ -112,6 +113,7 @@ function moveGrid(dir) {
         document.querySelector(`[data-id="8"]`),
         document.querySelector(`[data-id="0"]`)
       );
+
       //TODO: mobile safari, edge
       if (is.chrome() || is.safari()) {
         window.scrollBy(0, 1800);
