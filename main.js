@@ -30,9 +30,12 @@ function debug() {
     document.title = debugString;
     console.log(debugString);
   });
+  setInterval(() => {
+    document.body.prepend(d);
+  }, 500);
   document.body.prepend(d);
 }
-//debug();
+debug();
 let observer = new IntersectionObserver(callback, options);
 function setupObservers() {
   observer.observe(document.querySelector(".left"));
@@ -122,19 +125,19 @@ function moveGrid(dir) {
       );
       scrollContainer.insertBefore(
         document.querySelector(`[data-id="21"]`),
-        document.querySelector(`[data-id="1"]`)
+        document.querySelector(`[data-id="0"]`)
       );
       scrollContainer.insertBefore(
         document.querySelector(`[data-id="22"]`),
-        document.querySelector(`[data-id="2"]`)
+        document.querySelector(`[data-id="0"]`)
       );
       scrollContainer.insertBefore(
         document.querySelector(`[data-id="23"]`),
-        document.querySelector(`[data-id="3"]`)
+        document.querySelector(`[data-id="0"]`)
       );
       scrollContainer.insertBefore(
         document.querySelector(`[data-id="24"]`),
-        document.querySelector(`[data-id="4"]`)
+        document.querySelector(`[data-id="0"]`)
       );
 
       //TODO: mobile safari, edge
