@@ -8,7 +8,8 @@ let initialTop = 1200;
 let initialLeft = 1200;
 const scrollContainer = document.querySelector(".scroll-container");
 buildDOM(imageSets, scrollContainer);
-
+const rightTrigger = 3600 - window.innerWidth - 300;
+console.log({ rightTrigger });
 const instance = new detectScroll(window, {
   events: {
     scrollUp: up,
