@@ -3,26 +3,56 @@
   margin: 0;
   padding: 0;
 }
+
+/* body::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+} */
+
 img {
   max-width: 100%;
   height: auto;
   object-fit: cover;
 }
-.scroll-container {
-  width: 3600px;
-  height: 3600px;
-  /* background-image: url("http://1-background.com/images/stars-1/star-space-tile.jpg");
-  background-size: 300px 300px;
-  background-repeat: repeat; */
-}
 
-.scroll-container {
+.scroll-container-observer {
+  width: 5400px;
+  height: 5400px;
   display: grid;
-  grid-template-columns: repeat(3, 1200px);
-  grid-template-rows: repeat(3, 1200px);
+  grid-template-columns: 0px 5400px 0px;
+}
+.up,
+.down {
+  width: 5400px;
+  height: 0px;
+  background: yellow;
+}
+.left,
+.right {
+  height: 5400px;
+  width: 0px;
+  background: yellow;
+}
+.scroll-container-observer .middle {
+  display: grid;
+  grid-template-columns: repeat(3, 1800px);
+  grid-template-rows: repeat(3, 1800px);
 }
 .inner-grid {
   display: grid;
-  grid-template-columns: repeat(3, 400px);
-  grid-template-rows: repeat(3, 400px);
+  grid-template-columns: repeat(4, 450px);
+  grid-template-rows: repeat(4, 450px);
+}
+
+.debug {
+  position: fixed;
+  left: 50px;
+  top: 50px;
+  background: black;
+  color: white;
+  padding: 0.5rem;
+  z-index: 100;
 }

@@ -53,15 +53,15 @@ export const images = [
 
 export function getImageSets() {
   let imageSets = [];
-  imageSets.push(images.slice(0, 9));
-  imageSets.push(images.slice(9, 18));
-  imageSets.push(images.slice(18, 27));
-  imageSets.push(images.slice(27, 36));
-  imageSets.push(images.slice(36, 43));
-  imageSets.push(images.slice(43, 52));
-  imageSets.push(images.slice(0, 9));
-  imageSets.push(images.slice(9, 18));
-  imageSets.push(images.slice(18, 27));
+  imageSets.push(images.slice(0, 16));
+  imageSets.push(images.slice(16, 32));
+  imageSets.push(images.slice(32, 48));
+  imageSets.push(images.slice(8, 24));
+  imageSets.push(images.slice(24, 40));
+  imageSets.push(images.slice(4, 20));
+  imageSets.push(images.slice(20, 36));
+  imageSets.push(images.slice(6, 22));
+  imageSets.push(images.slice(22, 38));
   return imageSets;
 }
 
