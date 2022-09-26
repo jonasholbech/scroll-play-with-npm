@@ -32,13 +32,13 @@ function debug() {
   });
   document.body.prepend(d);
 }
-debug();
+//debug();
 let observer = new IntersectionObserver(callback, options);
 function setupObservers() {
   observer.observe(document.querySelector(".left"));
-  /* observer.observe(document.querySelector(".up"));
+  observer.observe(document.querySelector(".up"));
   observer.observe(document.querySelector(".down"));
-  observer.observe(document.querySelector(".right")); */
+  observer.observe(document.querySelector(".right"));
 }
 setupObservers();
 function removeObservers() {
@@ -94,33 +94,49 @@ function moveGrid(dir) {
     case "right":
       scrollContainer.insertBefore(
         document.querySelector(`[data-id="0"]`),
-        document.querySelector(`[data-id="3"]`)
+        document.querySelector(`[data-id="5"]`)
       );
       scrollContainer.insertBefore(
-        document.querySelector(`[data-id="3"]`),
-        document.querySelector(`[data-id="6"]`)
+        document.querySelector(`[data-id="5"]`),
+        document.querySelector(`[data-id="10"]`)
       );
       scrollContainer.insertBefore(
-        document.querySelector(`[data-id="6"]`),
-        document.querySelector(`[data-id="9"]`)
+        document.querySelector(`[data-id="10"]`),
+        document.querySelector(`[data-id="15"]`)
       );
+      scrollContainer.insertBefore(
+        document.querySelector(`[data-id="15"]`),
+        document.querySelector(`[data-id="20"]`)
+      );
+      document
+        .querySelector(`[data-id="20"]`)
+        .after(document.querySelector(`[data-id="24"]`));
 
       scroll(-1800, 0);
       resetNumbers();
       break;
     case "up":
       scrollContainer.insertBefore(
-        document.querySelector(`[data-id="6"]`),
+        document.querySelector(`[data-id="20"]`),
         document.querySelector(`[data-id="0"]`)
       );
       scrollContainer.insertBefore(
-        document.querySelector(`[data-id="7"]`),
-        document.querySelector(`[data-id="0"]`)
+        document.querySelector(`[data-id="21"]`),
+        document.querySelector(`[data-id="1"]`)
       );
       scrollContainer.insertBefore(
-        document.querySelector(`[data-id="8"]`),
-        document.querySelector(`[data-id="0"]`)
+        document.querySelector(`[data-id="22"]`),
+        document.querySelector(`[data-id="2"]`)
       );
+      scrollContainer.insertBefore(
+        document.querySelector(`[data-id="23"]`),
+        document.querySelector(`[data-id="3"]`)
+      );
+      scrollContainer.insertBefore(
+        document.querySelector(`[data-id="24"]`),
+        document.querySelector(`[data-id="4"]`)
+      );
+
       //TODO: mobile safari, edge
       if (is.chrome() || is.safari()) {
         window.scrollBy(0, 1800);
@@ -131,6 +147,8 @@ function moveGrid(dir) {
       scrollContainer.appendChild(document.querySelector(`[data-id="0"]`));
       scrollContainer.appendChild(document.querySelector(`[data-id="1"]`));
       scrollContainer.appendChild(document.querySelector(`[data-id="2"]`));
+      scrollContainer.appendChild(document.querySelector(`[data-id="3"]`));
+      scrollContainer.appendChild(document.querySelector(`[data-id="4"]`));
       if (is.chrome() || is.safari()) {
         window.scrollBy(0, -1800);
       }

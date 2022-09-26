@@ -4,13 +4,13 @@
   padding: 0;
 }
 
-/* body::-webkit-scrollbar {
+body::-webkit-scrollbar {
   display: none;
 }
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
-} */
+}
 
 img {
   max-width: 100%;
